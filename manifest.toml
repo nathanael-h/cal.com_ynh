@@ -1,0 +1,62 @@
+#:schema https://raw.githubusercontent.com/YunoHost/apps/master/schemas/manifest.v2.schema.json
+
+packaging_format = 2
+
+id = "cal_com"
+name = "Cal.com"
+
+description.en = " Scheduling infrastructure for absolutely everyone. "
+description.fr = "La meilleure façon de planifier vos réunions"
+
+version = "1.0~ynh1"
+
+maintainers = ["nathanael-h"]
+
+[upstream]
+license = " AGPL-3.0-only"
+website = "https://cal.com/"
+
+admindoc = "https://cal.com/docs/self-hosting/installation"
+userdoc = "https://cal.com/scheduling/feature/collective"
+code = "https://github.com/calcom/cal.com/"
+
+[integration]
+yunohost = '>= 11.2.30'
+helpers_version = "2.1"
+architectures = "all" 
+multi_instance = false
+ldap = "false" 
+sso = "false"
+disk = "50M"
+ram.build = "50M"
+ram.runtime = "50M"
+
+[install]
+
+    [install.domain]
+    type = "domain"
+
+    [install.path]
+    type = "path"
+    default = "/cal_com"
+
+    [install.init_main_permission]
+    type = "group"
+    default = "visitors"
+
+[resources]
+
+    [resources.sources]
+
+        [resources.sources.main]
+        url = "https://github.com/calcom/cal.com/archive/refs/tags/v4.7.25.tar.gz"
+        sha256 = "9fd2af6656c644d61e1f0690a0ca8018667041e70efe1fcb32b5af72927ad5a4"
+
+        autoupdate.strategy = "latest_github_release"
+
+    [resources.permissions]
+    main.url = "/"
+
+    [resources.ports]
+    [resources.database]
+    type = "postgresql"
