@@ -2,7 +2,7 @@
 
 packaging_format = 2
 
-id = "cal_com"
+id = "cal"
 name = "Cal.com"
 
 description.en = " Scheduling infrastructure for absolutely everyone. "
@@ -38,7 +38,7 @@ ram.runtime = "50M"
 
     [install.path]
     type = "path"
-    default = "/cal_com"
+    default = "/cal"
 
     [install.init_main_permission]
     type = "group"
