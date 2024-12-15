@@ -25,8 +25,8 @@ yunohost = '>= 11.2.30'
 helpers_version = "2.1"
 architectures = "all" 
 multi_instance = false
-ldap = "false" 
-sso = "false"
+ldap = false
+sso = false
 disk = "50M"
 ram.build = "50M"
 ram.runtime = "50M"
@@ -46,6 +46,9 @@ ram.runtime = "50M"
 
 [resources]
 
+    [resources.apt]
+    packages = "postgresql"
+
     [resources.sources]
 
         [resources.sources.main]
@@ -53,6 +56,9 @@ ram.runtime = "50M"
         sha256 = "9fd2af6656c644d61e1f0690a0ca8018667041e70efe1fcb32b5af72927ad5a4"
 
         autoupdate.strategy = "latest_github_release"
+    
+    [resources.system_user]
+    allow_email = true
 
     [resources.permissions]
     main.url = "/"
