@@ -48,8 +48,8 @@ yunohost service add "$app" --description="A short description of the app" --log
 ynh_script_progression "Upgrading $app..."
 
 pushd $install_dir
-  ynh_exec_as_app yarn
-  ynh_exec_as_app yarn build
+  ynh_exec_as_app env NODE_OPTIONS="--max-old-space-size=$node_max_old_space_size" yarn
+  ynh_exec_as_app env NODE_OPTIONS="--max-old-space-size=$node_max_old_space_size" yarn build
 popd
 
 #=================================================
