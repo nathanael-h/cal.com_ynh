@@ -49,6 +49,9 @@ ram.runtime = "50M"
     [resources.apt]
     packages = "postgresql"
 
+    [resources.system_user]
+    allow_email = true
+    
     [resources.sources]
 
         [resources.sources.main]
@@ -59,8 +62,6 @@ ram.runtime = "50M"
     
     [resources.install_dir]
     
-    [resources.system_user]
-    allow_email = true
 
     [resources.permissions]
     main.url = "/"
